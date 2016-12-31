@@ -22,12 +22,13 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './src/components'
+    ],
     alias: {
       App: 'src/App.jsx',
-      applicationStyles: 'src/styles/app.scss',
-      Navigation: 'src/components/Navigation.jsx',
-      Page1: 'src/components/Page1.jsx',
-      Page2: 'src/components/Page2.jsx'
+      applicationStyles: 'src/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']
   },

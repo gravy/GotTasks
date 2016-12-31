@@ -1,15 +1,9 @@
 import React from 'react';
-import Navigation from 'Navigation';
 
-let App = ({children}) => {
+let App = () => {
   return (
     <div className="App">
-      <Navigation/>
-      <div className="row">
-        <div className="column small-centered medium-6 large-4">
-          {children}
-        </div>
-      </div>
+      GotTasks
     </div>
   );
 };
