@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 
-class Page1 extends Component {
+export default class Todo extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+
+    };
   }
 
   render() {
+    let {id, text} = this.props;
 
     return (
       <div>
-        <h1 className="page-title">Page1</h1>
+        {id}. {text}
       </div>
     );
   }
 
 }
 
-export default Page1;
