@@ -22,6 +22,17 @@ class TodoList extends Component {
 
     return (
       <div>
+        <ul className="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#">This is a Dropdown</a>
+            <ul className="menu">
+              <li><a href="#">Item 1</a></li>
+              <li><a href="#">Item 2</a></li>
+              <li><a href="#">Item 3</a></li>
+            </ul>
+          </li>
+        </ul>
+
         {renderTodos()}
       </div>
     );

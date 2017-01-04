@@ -4,10 +4,10 @@ import expect from 'expect';
 import $ from 'jQuery';
 import TestUtils from 'react-addons-test-utils';
 
-import Page1 from 'Page1';
+import Todo from 'Todo';
 
-describe('Page1', () => {
+describe('Todo', () => {
   it ('should exist', () => {
-    expect(Page1).toExist();
+    expect(Todo).toExist();
   });
 });
