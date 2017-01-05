@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoList from 'TodoList';
+import AddTodo from 'AddTodo';
 
 export default class App extends Component {
   constructor(props) {
@@ -27,14 +28,18 @@ export default class App extends Component {
     };
   }
 
+  handleAddTodo(text) {
+    alert('new todo: ' + text);
+  }
+
   render() {
     var {todos} = this.state;
 
     return (
       <div className="App">
         <TodoList todos={todos}/>
+        <AddTodo onAddTodo={this.handleAddTodo}/>
       </div>
     );
   }
 };
-
