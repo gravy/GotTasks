@@ -29,6 +29,8 @@ export default class App extends Component {
         },
       ]
     };
+
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleAddTodo(text) {
