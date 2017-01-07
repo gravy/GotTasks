@@ -4,19 +4,7 @@ export default class TodoSearch extends Component {
   constructor(props) {
     super(props);
 
-    this.handleSearch = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    let searchText = this.refs.searchText.value;
-
-    if (searchText.length > 0) {
-      this.refs.searchText.value = '';
-      this.props.onSearch(searchText);
-    } else {
-      this.refs.searchText.focus();
-    }
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleSearch() {
