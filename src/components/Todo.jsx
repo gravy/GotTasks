@@ -6,11 +6,13 @@ export default class Todo extends Component {
   }
 
   render() {
-    let {id, text} = this.props;
+    let {id, text, completed} = this.props;
 
     return (
       <div>
-        {id}. {text}
+        <input type="checkbox" onChange={() => {
+          this.props.onToggle(id);
+        }} checked={completed}/> {text}
       </div>
     );
   }
