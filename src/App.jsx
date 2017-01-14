@@ -9,34 +9,13 @@ import TodoAPI from 'TodoAPI';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       showCompleted: false,
       searchText: '',
       todos: TodoAPI.getTodos()
-//       [
-//         {
-//           id: uuid(),
-//           text: 'Walk the dog',
-//           completed: false
-//         },
-//         {
-//           id: uuid(),
-//           text: 'Clean the yard',
-//           completed: true
-//         },
-//         {
-//           id: uuid(),
-//           text: 'Program',
-//           completed: true
-//         },
-//         {
-//           id: uuid(),
-//           text: 'Eat dinner',
-//           completed: false
-//         },
-//       ]
     };
+
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
@@ -79,12 +58,13 @@ export default class App extends Component {
   }
 
   render() {
-    let {todos} = this.state;
+    let {todos, showCompleted, searchText} = this.state;
+    let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 
     return (
       <div className="App">
         <TodoSearch onSearch={this.handleSearch}/>
-        <TodoList todos={todos} onToggle={this.handleToggle}/>
+        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
         <AddTodo onAddTodo={this.handleAddTodo}/>
       </div>
     );

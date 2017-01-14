@@ -12,7 +12,6 @@ export default class TodoSearch extends Component {
     let searchText = this.refs.searchText.value;
 
     this.props.onSearch(showCompleted, searchText);
-    console.log('state:', this.state);
   }
 
   render() {
