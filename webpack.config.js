@@ -26,7 +26,8 @@ module.exports = {
       'node_modules',
       './src/api',
       './src/components',
-      './src/actions'
+      './src/actions',
+      './src/reducers'
     ],
     alias: {
       App: 'src/App.jsx',
