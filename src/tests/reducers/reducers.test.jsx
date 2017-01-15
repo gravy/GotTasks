@@ -1,7 +1,7 @@
 import expect from 'expect';
 import df from 'deep-freeze-strict';
 
-import { searchTextReducer, showCompletedReducer } from 'reducers';
+import { searchTextReducer, showCompletedReducer, todosReducer } from 'reducers';
 
 describe('Reducers', () => {
   describe('searchTextReducer', () => {
@@ -24,6 +24,40 @@ describe('Reducers', () => {
       let res = showCompletedReducer(df(false), df(action));
 
       expect(res).toEqual(true);
+    });
+  });
+
+  describe('todosReducer', () => {
+    it ('should add new todo to existing todos', () => {
+      let action = {
+        type: 'ADD_TODO',
+        text: 'some todo'
+      };
+      let res = todosReducer(df([]), df(action));
+
+      expect(res.length).toEqual(1);
+      expect(res[0].text).toEqual('some todo');
+    });
+
+    it ('should toggle todo item status', () => {
+      let todos = [
+        {
+          id: '1',
+          text: 'some todo',
+          completed: true,
+          createdAt: 123,
+          completedAt: 175
+        }
+      ];
+
+      let action = {
+        type: 'TOGGLE_TODO',
+        id: '1'
+      };
+      let res = todosReducer(df(todos), df(action));
+
+      expect(res[0].completed).toEqual(false);
+      expect(res[0].completedAt).toEqual(undefined);
     });
   });
 });
