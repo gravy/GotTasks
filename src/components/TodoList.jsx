@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Todo from 'Todo';
+import { filterTodos } from 'TodoAPI';
 
 export class TodoList extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export class TodoList extends Component {
   }
 
   render() {
-    let {todos} = this.props;
+    let {todos, showCompleted, searchText} = this.props;
     let renderTodos = () => {
       if (todos.length === 0) {
         return (
@@ -17,7 +18,7 @@ export class TodoList extends Component {
         )
       }
 
-      return todos.map((todo) => {
+      return filterTodos(todos, showCompleted, searchText).map((todo) => {
         return (
           <Todo key={todo.id} {...todo}/>
         );
@@ -34,8 +35,6 @@ export class TodoList extends Component {
 
 export default connect(
   (state) => {
-    return {
-      todos: state.todos
-    }
+    return state;
   }
 )(TodoList);

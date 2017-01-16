@@ -13,10 +13,6 @@ store.subscribe(() => {
   console.log('New State', store.getState());
 });
 
-store.dispatch(actions.addTodo('Have breakfast'));
-store.dispatch(actions.setSearchText('breakfast'));
-store.dispatch(actions.toggleShowCompleted());
-
 // Load foundation
 $(document).foundation();
 
