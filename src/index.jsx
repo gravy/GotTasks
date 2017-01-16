@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import {Route, Router, hashHistory} from 'react-router';
 
 import App from 'App';
@@ -23,8 +24,10 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}></Route>
-  </Router>,
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}></Route>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
