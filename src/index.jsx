@@ -8,10 +8,16 @@ import App from 'App';
 //import actions from 'actions';
 let actions = require('actions');
 let store = require('configureStore').configure();
+let TodoAPI = require('TodoAPI');
 
 store.subscribe(() => {
-  console.log('New State', store.getState());
+  let state = store.getState();
+  console.log('New State', state);
+  TodoAPI.setTodos(state.todos);
 });
+
+let initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 // Load foundation
 $(document).foundation();
