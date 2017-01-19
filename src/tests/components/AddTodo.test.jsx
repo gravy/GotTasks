@@ -18,7 +18,8 @@ describe('AddTodo', () => {
       text: todoText
     };
     let spy = expect.createSpy();
-    let addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
+    //let addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
+    let addTodo = TestUtils.renderIntoDocument(<AddTodo/>);
     let $el = $(ReactDOM.findDOMNode(addTodo));
 
     addTodo.refs.todoText.value = todoText;

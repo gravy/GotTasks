@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { addTodo } from 'actions';
 
@@ -12,12 +13,11 @@ export class AddTodo extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let {dispatch} = this.props;
     let todoText = this.refs.todoText.value;
 
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
-      dispatch(addTodo(todoText));
+      this.props.addTodo(todoText);
     } else {
       this.refs.todoText.focus();
     }
@@ -35,4 +35,10 @@ export class AddTodo extends Component {
   }
 }
 
-export default connect()(AddTodo);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    addTodo: addTodo
+  }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(AddTodo);

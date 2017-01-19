@@ -1,27 +1,12 @@
 import uuid from 'node-uuid';
 import moment from 'moment';
 
-export const searchTextReducer = (state = '', action) => {
-  switch (action.type) {
-    case 'SET_SEARCH_TEXT':
-      return action.searchText;
-    default:
-      return state;
-  }
-};
+import { ADD_TODO, TOGGLE_TODO, ADD_TODOS } from '../actions/actions';
 
-export const showCompletedReducer = (state = false, action) => {
-  switch (action.type) {
-    case 'TOGGLE_SHOW_COMPLETED':
-      return !state;
-    default:
-      return state;
-  }
-};
 
 export const todosReducer = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [
         ...state,
         {
@@ -33,7 +18,7 @@ export const todosReducer = (state = [], action) => {
         }
       ];
 
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return state.map((todo) => {
         if (todo.id === action.id) {
           let nextCompleted = !todo.completed;
@@ -48,7 +33,7 @@ export const todosReducer = (state = [], action) => {
         }
       });
 
-    case 'ADD_TODOS':
+    case ADD_TODOS:
       return [
         ...state,
         ...action.todos

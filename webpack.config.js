@@ -30,7 +30,7 @@ module.exports = {
       './src/reducers'
     ],
     alias: {
-      App: 'src/App.jsx',
+      //App: 'src/App.jsx',
       applicationStyles: 'src/styles/app.scss',
       configureStore: 'src/store/configureStore.jsx'
     },

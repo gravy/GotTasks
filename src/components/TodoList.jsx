@@ -33,8 +33,9 @@ export class TodoList extends Component {
   }
 }
 
-export default connect(
-  (state) => {
-    return state;
-  }
-)(TodoList);
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps)(TodoList);
+
